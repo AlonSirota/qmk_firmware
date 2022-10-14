@@ -20,6 +20,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+//Home row seetings:
+#define IGNORE_MOD_TAP_INTERRUPT // Without this, will treat a hold of a mod key as mod, even though the hold was shorter than tapping term.
+#define TAPPING_FORCE_HOLD // tap -> hold on a mod-key will be treated as a mod hold, instead of auto-repeat of tap.
 //#define USE_MATRIX_I2C
 
 /* Select hand configuration */
