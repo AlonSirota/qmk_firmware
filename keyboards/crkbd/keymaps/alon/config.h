@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //Home row seetings:
 #define TAPPING_FORCE_HOLD // tap -> hold on a mod-key will be treated as a mod hold, instead of auto-repeat of tap.
+#define PERMISSIVE_HOLD
 //#define USE_MATRIX_I2C
 
 /* Select hand configuration */
