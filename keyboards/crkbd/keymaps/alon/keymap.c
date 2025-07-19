@@ -69,3 +69,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   )
 };
+
+#ifdef RGBLIGHT_ENABLE
+// Light LEDs when layer 3 (gaming layer) is active
+const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 27, HSV_BLUE},       // Light all LEDs on left half blue
+    {27, 27, HSV_BLUE}       // Light all LEDs on right half blue
+);
+
+// Define the array of layers. Later layers take precedence
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_layer3_layer
+);
+
+void keyboard_post_init_user(void) {
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, get_highest_layer(state) == 3);
+    return state;
+}
+#endif
